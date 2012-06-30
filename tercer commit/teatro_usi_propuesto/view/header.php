@@ -13,9 +13,14 @@
     <!--[if lte IE 6]><link rel="stylesheet" media="screen,projection" type="text/css" href="css/main-ie6.css" /><![endif]-->
     <link rel="stylesheet" media="screen,projection" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" media="screen,projection" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="../css/estilosDiferencia.css" />
     <script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/jquery.innerfade.js"></script>
+        
+         
     <script type="text/javascript">
+        
+        
     $(document).ready(
     function(){
         $('#slider').innerfade({
@@ -43,13 +48,30 @@
 
         <!-- Navigation -->
         <p id="nav">
-            <strong>Home</strong> <span>|</span>
+           <a href="index.php"> <strong>Home</strong></a> <span>|</span>
             <a href="#">Sobre nosotros</a> <span>|</span>
-            <a href="#">Obras</a> <span>|</span>
+            <a href="index.php">Obras</a> <span>|</span>
             <a href="#">Cont&aacute;ctenos</a>
+            
+            
+            <?php if (!isset($_SESSION['usuario'])) { ?>
+            <a class="i-auth" title="Registrarse" href="index.php?vista=registrar">Registrarse</a>
             <a class="i-auth" title="Registrarse con Facebook" href="#"><img height="16" width="16" alt="Facebook" src="../design/facebook-16.gif"></a>
             <a class="i-auth" title="Registrarse con Twitter" href="index.php?vista=login"><img height="16" width="16" alt="Twitter" src="../design/twitter-16.gif"></a>
-            <a class="i-auth" title="Registrarse con Manual" href="#"><img height="16" width="16" alt="Facebook" src="../design/manual-16.gif"></a>
+            <a class="i-auth" title="Loggearse manualmente" href="index.php?vista=login2"><img height="16" width="16" alt="Facebook" src="../design/manual-16.gif"></a>
+            <?php } ?>
+            
+            
+           
+            
+              Usuario:
+            <?php if (isset($_SESSION['usuario'])) {  echo $_SESSION['usuario']->get_usuario();}  ?>
+                <a class="i-auth" title="Logout" href="index.php?vista=logout">Logout</a>
+             </a>
+            
+            
+            
+            
             
         </p>
          <p id="nav2">
@@ -62,7 +84,7 @@
             
             <a href="#">Facebook</a> <span>|</span>
             <a href="#">Twitter</a> <span>|</span>
-            <a href="#">Registro manual</a>
+            <a href="index.php?vista=login2">Registro manual</a>
         </p>
         
 
@@ -70,20 +92,7 @@
 
     <hr class="noscreen" />
 
-    <!-- Promo -->
-    <div id="promo">
-
-        <p id="slogan"><img src="../design/slogan.gif" alt="Slogan" /></p>
-        
-        <ul id="slider">
-            <li><img src="../design/slider-01.jpg" alt="" /></li>
-            <li><img src="../design/slider-02.jpg" alt="" /></li>
-            <li><img src="../design/slider-03.jpg" alt="" /></li>
-        </ul>
-        
-    </div> <!-- /promo -->
-
-    <hr class="noscreen" />
+   
 
     
 

@@ -1,0 +1,9 @@
+Version Localhost
+
+usuarios clientes
+
+usuario:  somicyouth
+clave: 123456
+
+usuario:  reni
+clave: 123456

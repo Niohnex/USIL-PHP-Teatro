@@ -1,9 +1,9 @@
 <?php
 require_once("../ds/BaseDeDatos.php");
-require_once("../dm/Mysql.php");
+require_once("../dm/Misql.php");
 abstract class Persistence {
     public static function _conectarBD(){
-        $cn = new BaseDeDatos(new Mysql());
+        $cn = new BaseDeDatos(new Misql());
         return $cn;
     }
 

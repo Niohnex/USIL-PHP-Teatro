@@ -3,7 +3,7 @@ require_once("../ds/BaseDeDatos.php");
 require_once("../dm/Mysql.php");
 abstract class Persistence {
     public static function _conectarBD(){
-        $cn = new BaseDeDatos(new Misql());
+        $cn = new BaseDeDatos(new Mysql());
         return $cn;
     }
 

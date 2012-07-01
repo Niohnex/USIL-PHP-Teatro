@@ -6,7 +6,7 @@ class Mysql implements IManejadorBaseDeDatos{
     const USUARIO = 'root';
     const CLAVE = 'root';
     const SERVIDOR = 'localhost';
-    const BASE = 'mydb';
+    const BASE = '504116db2';
 
     private $_conexion;
 

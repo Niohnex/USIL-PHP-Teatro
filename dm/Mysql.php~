@@ -6,12 +6,12 @@ class Mysql implements IManejadorBaseDeDatos{
     const USUARIO = 'root';
     const CLAVE = 'root';
     const SERVIDOR = 'localhost';
-    const BASE = 'mydb';
+    const BASE = '504116db2';
 
     private $_conexion;
 
     public function conectar(){
-        $this->$_conexion = mysql_connect(self::SERVIDOR, self::USUARIO,self::CLAVE);
+        $this->_conexion = mysql_connect(self::SERVIDOR, self::USUARIO,self::CLAVE);
         mysql_select_db(self::BASE,$this->_conexion);
     }
 
@@ -23,7 +23,7 @@ class Mysql implements IManejadorBaseDeDatos{
     public function ejecutarQuery(SQL $sql) {
         
         //echo $sql;
-        $resultado = mysql_query($sql,$this->$_conexion);
+        $resultado = mysql_query($sql,$this->_conexion);
         //var_dump($resultado);
         //var_dump($resultado);
         //print_r($resultado);

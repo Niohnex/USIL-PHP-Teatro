@@ -7,7 +7,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Cargos` (
   `idCargos` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NULL ,
   `descripcion` VARCHAR(45) NULL ,
-  PRIMARY KEY (`idCargos`) );
+  PRIMARY KEY (`idCargos`) )
 
 
 -- -----------------------------------------------------
@@ -20,7 +20,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Participantes` (
   `cargo` VARCHAR(45) NULL ,
   `Cargos_idCargos` INT NOT NULL ,
   PRIMARY KEY (`idParticipantes`) 
- );
+ )
 
 
 
@@ -42,7 +42,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Obras` (
   `director` INT NOT NULL ,
   `afiche` VARCHAR(45) NULL ,
   PRIMARY KEY (`idObras`) 
-);
+)
 
 
 
@@ -53,7 +53,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Categorias` (
   `idCategorias` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NULL ,
   `descripcion` VARCHAR(45) NULL ,
-  PRIMARY KEY (`idCategorias`) );
+  PRIMARY KEY (`idCategorias`) )
 
 
 
@@ -64,7 +64,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Categorias_obras` (
   `Categorias_idCategorias` INT NOT NULL ,
   `Obras_idObras` INT NOT NULL ,
   PRIMARY KEY (`Categorias_idCategorias`, `Obras_idObras`) 
-);
+)
 
 
 
@@ -75,7 +75,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Roles` (
   `idRoles` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NULL ,
   `descripcion` VARCHAR(45) NULL ,
-  PRIMARY KEY (`idRoles`) );
+  PRIMARY KEY (`idRoles`) )
 
 
 
@@ -93,7 +93,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios` (
   `correo` VARCHAR(45) NULL ,
   `Roles_idRoles` INT NOT NULL ,
   PRIMARY KEY (`idUsuarios`) 
-);
+)
 
 
 -- -----------------------------------------------------
@@ -105,7 +105,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Votaciones` (
   `fecha` DATE NULL ,
   `comentario` VARCHAR(120) NULL ,
   PRIMARY KEY (`Usuarios_idUsuarios`, `Obras_idObras`) 
-);
+)
 
 
 
@@ -117,7 +117,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Obras_has_Participantes` (
   `Participantes_idParticipantes` INT NOT NULL ,
   `personaje` VARCHAR(45) NULL ,
   PRIMARY KEY (`Obras_idObras`, `Participantes_idParticipantes`) 
-);
+)
 
 
 
@@ -128,7 +128,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Horarios` (
   `idHorarios` INT NOT NULL ,
   `horaInicio` TIME NULL ,
   `horaFin` TIME NULL ,
-  PRIMARY KEY (`idHorarios`) );
+  PRIMARY KEY (`idHorarios`) )
 
 
 
@@ -139,7 +139,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Salas` (
   `idSalas` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NULL ,
   `descripcion` VARCHAR(45) NULL ,
-  PRIMARY KEY (`idSalas`) );
+  PRIMARY KEY (`idSalas`) )
 
 
 
@@ -152,7 +152,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Obras_has_Horarios` (
   `dia` DATE NOT NULL ,
   `Salas_idSalas` INT NOT NULL ,
   PRIMARY KEY (`Obras_idObras`, `Horarios_idHorarios`, `dia`, `Salas_idSalas`) 
-);
+)
 
 
 
@@ -163,7 +163,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Temporadas` (
   `idTemporadas` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NULL ,
   `descripcion` VARCHAR(45) NULL ,
-  PRIMARY KEY (`idTemporadas`) );
+  PRIMARY KEY (`idTemporadas`) )
 
 
 
@@ -174,7 +174,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Temporadas_has_Obras` (
   `Temporadas_idTemporadas` INT NOT NULL ,
   `Obras_idObras` INT NOT NULL ,
   PRIMARY KEY (`Temporadas_idTemporadas`, `Obras_idObras`) 
-);
+)
 
 
 

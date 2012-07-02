@@ -40,24 +40,31 @@ $usuario = $result[0];
 
     </head>
     <body>
-        <div id="login" >
+       <div style="float: left;">
+            <a href="MiPerfil.php"><i>Mi Perfil</i></a> |
+            <a href="MiCuenta.php"><i>Editar Perfil</i></a> |
+            <a href="Logout.php"><i>Log Out</i></a>
+           
+        </div>
+        <div id="login" style="text-align: right" >
             <?php if(isset ($_SESSION["usuario"])){ ?>
             
             Beienvenido(a) <b> <?php echo $_SESSION["usuario"];  ?> </b><br/>
-            <i> <a href="Logout.php">(log out)</a></i>
+           
             
             <?php }    ?>
         </div>
+       
         <div >
             <center>
                 <div >    
                     <fieldset id="fieldset1"  style="width: 500px; height:590px" >
-                        <legend> <h1>Mis Datos</h1></legend>
+                        <legend> <h1>Editar Perfil</h1></legend>
                         <br/>   
                         <div style="padding-left: 20px">
                             <form  id="myform" name="myform" method="post" action="MiCuenta.php">
 
-                                <table width="470px">
+                                <table width="370px">
 
                                     <tr>
                                         <td>

@@ -22,7 +22,7 @@ if (isset($_POST["email"]) && isset($_POST["contrasena"])) {
             header("location:AdministrarUsuarios.php");
         } else {
             $_SESSION["usuario"] = $result[0]["correo"];
-            header("location:MiCuenta.php");
+            header("location:MiPerfil.php");
         }
     }
 }
@@ -37,18 +37,20 @@ if (isset($_POST["email"]) && isset($_POST["contrasena"])) {
     </head>
     <body>
         <div>
+            <a href="Login.php"><i>Log In</i></a> |
             <a href="Registrarse.php"><i>Registrarse</i></a>
+            
         </div>
         <div >
             <center>
                 <div style="height: 400px">       
 
-                    <fieldset style="width: 500px; height: 300px ">
-                        <legend> <h1>Login</h1></legend>
+                    <fieldset style="width: 500px; height: 350px ">
+                        <legend> <h1>Log In</h1></legend>
                         <br/>   
 
                         <form  method="post" action="Login.php">
-                            <table>
+                            <table border="0" width="370px">
                                 <tr>
                                     <td>
                                         <h2> Email: </h2>
@@ -70,7 +72,7 @@ if (isset($_POST["email"]) && isset($_POST["contrasena"])) {
                                 </tr>
 
                             </table>
-                            <table width="355px">  
+                            <table width="380px" border="0">  
                                 <tr>
                                     <td colspan="3">
                                         <div style="text-align: right;">
@@ -79,7 +81,7 @@ if (isset($_POST["email"]) && isset($_POST["contrasena"])) {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">
+                                    <td width="200px" >
                                         <br/>
 
                                         <div style="height: 50px">
@@ -88,7 +90,12 @@ if (isset($_POST["email"]) && isset($_POST["contrasena"])) {
                                         </div>
 
                                     </td>
-
+                                    <td width="20px">
+                                        
+                                    </td>
+                                    <td>
+                                        <a href="RecuperarContrasena.php">Recuperar Contrase&ntilde;a</a>
+                                    </td>
                                 </tr>
                             </table>
                         </form>

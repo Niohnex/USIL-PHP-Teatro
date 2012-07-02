@@ -50,22 +50,26 @@
         <p id="nav">
            <a href="index.php"> <strong>Home</strong></a> <span>|</span>
             <a href="#">Sobre nosotros</a> <span>|</span>
-            <a href="index.php">Obras</a> <span>|</span>
+            <!--<a href="index.php">Obras</a> <span>|</span>-->
             <a href="#">Cont&aacute;ctenos</a>
             
             
             <?php if (!isset($_SESSION['usuario'])) { ?>
             <a class="i-auth" title="Registrarse" href="index.php?vista=registrar">Registrarse</a>
-            <a class="i-auth" title="Registrarse con Facebook" href="#"><img height="16" width="16" alt="Facebook" src="../design/facebook-16.gif"></a>
-            <a class="i-auth" title="Registrarse con Twitter" href="index.php?vista=login"><img height="16" width="16" alt="Twitter" src="../design/twitter-16.gif"></a>
+            <a class="i-auth" title="Registrarse con Facebook" href="index.php?vista=loginSocial&oauth_provider=facebook"><img height="16" width="16" alt="Facebook" src="../design/facebook-16.gif"></a>
+			
+			<!--<a href="index.php?vista=loginSocial&oauth_provider=facebook">Face</a>-->
+            <a class="i-auth" title="Registrarse con Twitter" href="index.php?vista=loginSocial&oauth_provider=twitter"><img height="16" width="16" alt="Twitter" src="../design/twitter-16.gif"></a>
+			<!--<a href="index.php?vista=loginSocial&oauth_provider=twitter">Twitt</a>-->
             <a class="i-auth" title="Loggearse manualmente" href="index.php?vista=login2"><img height="16" width="16" alt="Facebook" src="../design/manual-16.gif"></a>
             <?php } ?>
             
             
            
             
-              Usuario:
-            <?php if (isset($_SESSION['usuario'])) {  echo $_SESSION['usuario']->get_usuario();}  ?>
+             
+            <?php if (isset($_SESSION['usuario'])) {  echo "Usuario:".$_SESSION['usuario']->get_usuario();}  ?>
+				
                 <a class="i-auth" title="Logout" href="index.php?vista=logout">Logout</a>
              </a>
             

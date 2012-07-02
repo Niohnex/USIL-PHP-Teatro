@@ -1,4 +1,8 @@
 <div id="registro" >
+    
+    
+      <form method="post" action="index.php?vista=registrarManual">
+
 		
 			<h1>CREAR NUEVA CUENTA</h1>
 			<fieldset>
@@ -8,21 +12,23 @@
 					  <input class="text" type="text" name="txtNombre" id="nombre" value="<?php echo $nombres; ?>" />
 					  <label for="apellido">Apellidos</label>
 					  <input class="text" type="text" name="txtApellido" id="apellido" value="<?php echo $apellidos; ?>" />
+                                           <label for="apellido">Usuario</label>
+					  <input class="text" type="text" name="txtUsuario" id="apellido" value="" />
 					  
 			</fieldset>
 			<fieldset>
 				<legend>INFORMACION DE CUENTA</legend>
 				 <label for="email">Email</label>
-					  <input class="text" type="email" name="txtEmail" id="email" value="<?php echo $email; ?>" />
+					  <input class="text" type="email" name="txtCorreo" id="email" value="<?php echo $email; ?>" />
 					  <label for="password">Password</label>
-					  <input class="text" type="password" name="txtPassword" id="password" />
+					  <input class="text" type="password" name="txtClave" id="password" />
 					  <label for="repetPassw">Repetir password</label>
-					  <input class="text" type="password" name="txtRepetPassw" id="repetPassw" />
+					  <input class="text" type="password" name="txtClave2" id="repetPassw" />
 			</fieldset>
 			<p id="aceptoterminos"><input type="checkbox" name="chkTermCondi" id="termCondi" />
 			<label>Acepta  los términos y condiciones</label></p>
 			<input type="submit" name="btRegistrar" id="Registrarme!" value="Registrar" />
-		
+		</form>
 	</div>
 	<div id="registroRedes">
 		 <fieldset>

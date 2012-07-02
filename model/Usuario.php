@@ -1,6 +1,6 @@
 <?php
 require_once("../persistence/Persistence.php");
-
+require_once("../ds/SQL.php");
 class Usuario {
     
     private $_idUsuarios;
@@ -125,6 +125,47 @@ class Usuario {
             $users[] = $user;
         }
         return $users;    
+    }
+	
+	
+	public function getUsuarioPorId($id)
+    {
+        $users=$this->getUsers();
+        foreach($users as $user)
+        {
+            if($user->_idUsuarios==$id)
+                    return $user;
+            
+        }
+        return null;
+        
+    }
+    public function insertUsuario()
+    {
+        
+        
+        
+        $sql=new SQL("insert into usuarios values ($this->_idUsuarios,'$this->_nombre',
+                
+                '$this->_apellido1','$this->_apellido2','$this->_usuario',
+                '$this->_clave',$this->_estado,'$this->_correo',$this->_rolId)",2);
+        $resultado=Persistence::consultar($sql);
+	return $this->_idUsuarios;
+    }
+    
+    public function getUsuariosId()
+    {
+        
+        $sql= new SQL("select idUsuarios from usuarios",1);
+        $resultado=Persistence::consultar($sql);
+        foreach($resultado as $key=>$value)
+        {
+            $_id=$value['idUsuarios'];
+            
+            $objetos[]=$_id;
+            
+        }
+        return $objetos;
     }
 }
 

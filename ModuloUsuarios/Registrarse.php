@@ -50,7 +50,9 @@ if (isset($_POST["nombres"])) {
     </head>
     <body>
         <div>
-            <a href="Login.php"><i>Log in</i></a>
+            <a href="Login.php"><i>Log In</i></a> |
+            <a href="Registrarse.php"><i>Registrarse</i></a> 
+           
         </div>
         <div>
             <center>
@@ -61,11 +63,11 @@ if (isset($_POST["nombres"])) {
                         <div style="padding-left: 20px">
                             <form  id="myform" name="myform" method="post" action="Registrarse.php">
 
-                                <table width="470px" border="0">
+                                <table width="370px" border="0">
 
                                     <tr>
                                         <td>
-                                            <p> <label for="nombres">Nombres:</label> </p>
+                                            <h2> <label for="nombres">Nombres:</label> </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>
@@ -76,7 +78,7 @@ if (isset($_POST["nombres"])) {
 
                                     <tr>
                                         <td>
-                                            <p> Apellidos: </p>
+                                             <h2>Apellidos:  </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>
@@ -87,7 +89,7 @@ if (isset($_POST["nombres"])) {
 
                                     <tr>
                                         <td>
-                                            <p> Género: </p>
+                                             <h2> Género:  </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>
@@ -125,7 +127,7 @@ if (isset($_POST["nombres"])) {
 
                                     <tr>
                                         <td>
-                                            <p> Email: </p>
+                                             <h2> Email:  </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>
@@ -136,7 +138,7 @@ if (isset($_POST["nombres"])) {
 
                                     <tr>
                                         <td>
-                                            <p> Password: </p>
+                                             <h2> Password:  </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>
@@ -147,7 +149,7 @@ if (isset($_POST["nombres"])) {
 
                                     <tr>
                                         <td>
-                                            <p> Confirmar Password: </p>
+                                             <h2> Confirmar Password: </h2>
                                         </td>
                                         <td width="30px"></td>
                                         <td>

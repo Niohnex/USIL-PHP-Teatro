@@ -29,6 +29,7 @@
                                                             <li><?php echo "Actor: ".$actor->get_nombre()." ".$actor->get_apellido()." como ".$actor->get_personaje($actor->get_idParticipantes()); ?></li>
                                                             <?php }?>
                                                         </ul>
+														<a name="horarios"></a>
                                                         <p>Horarios y fechas</p>
                                                         <table>
                                                             <thead>
@@ -57,7 +58,7 @@
                                                         
 
 						</article>
-                            
+                            <a name="comentarios"></a>
                             <h3>Comentarios</h3>
                             <?php foreach($votos as $voto) { ?>
                             
@@ -72,9 +73,10 @@
 			</section><!-- end of #content -->
                         
                             <section>
-                                
+                                <a name="votos"></a>
+								<h3><?php echo $mensajeDeVotacion; ?></h3>
                                 <?php if (!isset($_SESSION['usuario'])) { ?>
-                                <h2><a class="i-auth" title="Registrarse con Manual" href="index.php?vista=login2">Para comentar debe ingresar al sitio</a></h2>
+                                <h4><a class="i-auth" title="Registrarse con Manual" href="index.php?vista=login2">Para comentar debe ingresar al sitio</a></h4>
                                 <?php }?>
                             <?php 
                         
@@ -94,16 +96,27 @@
                         <?php }
                         ?>
 
-		<aside id="sidebar"><!-- sidebar -->
-					<h3>Things To Do</h3>
+		<aside class="fijo"  id="sidebar"><!-- sidebar -->
+		
+		
+		 
+                <div class="fb-comments" data-href="http://www.facebook.com/xzitlou" data-num-posts="2" data-width="400"></div>
+					 <?php 
+                        
+                        if($mostrarFormularioVotos==true) { 
+                            
+                            ?>
+                    
+					<h3>Para hacer</h3>
 					<ul>
-						<li><a href="#">Votar a favor</a></li>
-						<li><a href="#">Votar contra</a></li>
-						<li><a href="#">Swap Stories</a></li>
-						<li><a href="#">Sell Stuff</a></li>
-						<li><a href="#">Buy Stuff</a></li>
-						<li><a href="#">Trade Stuff</a></li>
+                                            <?php if (isset($_SESSION['usuario'])) {?>
+						<li><a href="index.php?vista=votarRapido&usuarioId=<?php echo $_SESSION['usuario']->get_idUsuarios();?>&obraId=<?php echo $obra->get_id();?>&votoPositivo='yes'">Votar a favor</a></li>
+						<li><a href="index.php?vista=votarRapido&usuarioId=<?php echo $_SESSION['usuario']->get_idUsuarios();?>&obraId=<?php echo $obra->get_id();?>&votoNegativo='yes'">Votar contra</a></li>
+						
+                                                <?php }?>
 					</ul>
+                                         <?php }
+                        ?>
 					
 				<h3>Sponsors</h3>
 					<img src="images/ad125.jpg" alt=""><br><img src="images/ad125.jpg" alt=""><br><br>
@@ -113,7 +126,10 @@
 						<li><a href="#">Twitter</a></li>
 						<li><a href="#">Facebook</a></li>
 					</ul>
-
+					<script type="text/javascript" src="http://truelike.com/js/buttons.js"></script><a href="http://truelike.com/review" class="tlc-like-button" data-text="Opinar en las redes" data-counturl="http://musicpoly.freevar.com/teatro_usi_propuesto/" data-type="website" data-category="places">Like</a>
+					<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmusicpoly.freevar.com&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=trebuchet+ms&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+			    
+		 </br>
 		</aside><!-- end of sidebar -->
 
 	

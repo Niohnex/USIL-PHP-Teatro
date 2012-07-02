@@ -22,6 +22,22 @@ $obras=$controlador->getTodasObras();
 
 switch($vista)
 {
+	case 'votarRapido':
+        print_r($_GET);
+        $obraId=$_GET['obraId'];
+        $usuarioId=$_GET['usuarioId'];
+        $tipoVoto=isset($_GET['votoPositivo'])?1:-1;
+        $comentario="";
+         $logicC=new Controlador();
+         $logicC->votarComentar($obraId, $usuarioId, $comentario, $tipoVoto);
+         
+         $obra=$controlador->getObraById($obraId);
+         $vista='detalle';
+          
+       header("location:index.php?vista=detalle&id=$obraId");
+        break;
+
+
 	case 'registrarManual':
         
         $nombre=$_POST['txtNombre'];

@@ -32,15 +32,24 @@
                 <p><a href="index.php?vista=detalle&id=<?php echo $obra->get_id();?>"><img src="../images/<?php echo $obra->get_afiche();?>" class="block" alt="" /></a></p>
 
                 <p class="smaller"><strong>Rese&ntilde;a</strong>
-                <?php echo $obra->get_resena();?></p>
+                <?php  $obra->get_resena();?></p>
+				<p class="smaller"><strong># de sitios</strong>
+                <?php echo $obra->get_numeroSitios();?></p>
+				 <p class="smaller"><strong>Desde</strong>
+                <?php echo $obra->get_fechaDesde();?></p>
+				<p class="smaller"><strong>Hasta</strong>
+                <?php echo $obra->get_fechaHasta();?></p>
+				
 
                 <ul>
                     
-                    <li><a href="#">Ver Horarios</a></li>
-                    <li><a href="#">Ver Comentarios</a></li>
+                    <li><a href="index.php?vista=detalle&id=<?php echo $obra->get_id();?>#horarios">Ver Horarios</a></li>
+                    <li><a href="index.php?vista=detalle&id=<?php echo $obra->get_id();?>#comentarios">Ver Comentarios</a></li>
                     <li>S./ <?php echo $obra->get_precio();?></li>
                     <li class="puntaje"><?php echo $obra->get_puntaje();?> Puntos </li>
-                    <li><a href="#">+ Me gusta</a> || <a href="#">- No me gusta</a></li>
+					<?php if ( $obra->get_mostrar())  { ?>
+                    <li><a href="index.php?vista=detalle&id=<?php echo $obra->get_id();?>#votos">Votar</a></li>
+					<?php }?>
                 </ul>
             
             </div> <!-- /col -->

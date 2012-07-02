@@ -1,6 +1,7 @@
 <?php 
 require_once("../control/Controlador.php");
 require_once("../control/UserLogic.php");
+require_once("../control/ControladorRedes.php");
 require_once("../model/Obra.php");
         require_once("../model/Votacion.php");
         require_once("../model/Usuario.php");
@@ -21,10 +22,74 @@ $obras=$controlador->getTodasObras();
 
 switch($vista)
 {
+	case 'votarRapido':
+        print_r($_GET);
+        $obraId=$_GET['obraId'];
+        $usuarioId=$_GET['usuarioId'];
+        $tipoVoto=isset($_GET['votoPositivo'])?1:-1;
+        $comentario="";
+         $logicC=new Controlador();
+         $logicC->votarComentar($obraId, $usuarioId, $comentario, $tipoVoto);
+         
+         $obra=$controlador->getObraById($obraId);
+         $vista='detalle';
+          
+       header("location:index.php?vista=detalle&id=$obraId");
+        break;
+
+
+	case 'registrarManual':
+        
+        $nombre=$_POST['txtNombre'];
+        $apellido=$_POST['txtApellido'];
+        $usuario=$_POST['txtUsuario'];
+        $clave=$_POST['txtClave'];
+        $correo=$_POST['txtCorreo'];
+        
+        $userLog=new UserLogic();
+        $nuevoUsuario=$userLog->ingresarUsuarioManualmente($nombre, $apellido, "", $usuario, $clave, 1, $correo, 1);
+    
+        
+        session_start();
+        $_SESSION['usuario']=$nuevoUsuario;
+        
+        $vista='principal';
+		break;
+
     case 'principal':
         
         
         break;
+		case 'loginTwitter':
+				$logicRedes=new ControladorRedes();
+				$logicRedes->loginTwitter();
+				$vista='principal';
+				
+		break;
+		
+		case 'loginSocial':
+		
+		
+			//echo "entro primero";
+			$oauth_provider=$_GET['oauth_provider'];
+			if ($oauth_provider == 'twitter') {
+			//echo 'entro twitter';
+				$logicRedes=new ControladorRedes();
+				$logicRedes->conectarTwitter();
+			
+			//enviar a twitter
+        //header("Location: login-twitter.php");
+    } else if ($oauth_provider == 'facebook') {
+        //header("Location: login-facebook.php");
+		//echo "entro facebook";
+				$logicRedes2=new ControladorRedes();
+				$logicRedes2->conectarFacebook();
+				//echo 'dejo facebook';
+				$vista='principal';
+    }
+		
+		
+		break;
     
     case 'comentar':
         
@@ -33,7 +98,7 @@ switch($vista)
         $obraId=$_POST['obraId'];
         $usuarioId=$_SESSION['usuario']->get_idUsuarios();
         $logicC=new Controlador();
-       $logicC->votarComentar($obraId, $usuarioId, $comentario, $tipoVoto);
+        $logicC->votarComentar($obraId, $usuarioId, $comentario, $tipoVoto);
         
        // print_r($_POST);
         
@@ -110,13 +175,15 @@ switch($vista)
                         if($rs==true)
                         {
                             $vista='index';
-                            echo 'ok';
+                            //echo 'ok';
                             $_SESSION['usuario']=$rs;
                             $vista='principal';
                         }
                         else
                         {
-                            echo 'no ok';
+						
+							$vista='login2';
+                           // echo 'no ok';
                         }
                         
                     }

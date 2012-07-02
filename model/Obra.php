@@ -1,6 +1,7 @@
 <?php
 require_once("../persistence/Persistence.php");
 require_once("../ds/SQL.php");
+require_once("Votacion.php");
 class Obra{
     
 	private $_id;
@@ -304,7 +305,7 @@ function __construct($_id="", $_titulo="", $_resena="", $_autor="", $_fechaDesde
             $_duracion=$value['duracion'];
             $_director=$value['director'];
             $_afiche=$value['afiche'];
-            $objetos[]=new Obra($_id, $_titulo, $_resena, $_autor, $_fechaDesde, $_fechaHasta, $_puntaje, $_detallesExtra, $_numeroSitios, $_precio, $_duracion, $_director, $_afiche);
+            $objetos[]=new Obra($_id, $_titulo, $_resena, $_autor, $_fecha_desde, $_fecha_hasta, $_puntaje, $_detalles_extra, $_numeroSitios, $_precio, $_duracion, $_director, $_afiche);
             
         }
         return $objetos;
@@ -321,6 +322,34 @@ function __construct($_id="", $_titulo="", $_resena="", $_autor="", $_fechaDesde
                 //print_r($objeto);
                 return $objeto;
             }
+        }
+        
+    }
+	
+	public function get_mostrar()
+    {
+        $voto= new Votacion();
+        
+        
+        
+        if(isset($_SESSION['usuario']))
+        {
+            //hay usuario
+            if($voto->verificarSiYaVoto($_SESSION['usuario']->get_idUsuarios(), $this->get_id()))
+                {//ya voto, no podra votar ya
+                    return false;
+                }
+             else
+             {
+                 //mostrar formulario, esta habilitado para votar
+                 return true;
+             }
+                
+        }
+        else
+        {
+            //no puede votar, no se sabe si ya voto, no se muestra formulario para votar
+             return true;
         }
         
     }

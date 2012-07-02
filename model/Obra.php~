@@ -159,7 +159,7 @@ function __construct($_id="", $_titulo="", $_resena="", $_autor="", $_fechaDesde
 }
 
 
-public function _createObra($v_titulo, $v_resena, $v_autor, $v_fechadesde, $v_fechahasta, $v_puntaje, $v_detallesExtra, $v_numeroSitios, $v_precio, $v_duracion, $v_director, $v_afiche) {
+public function _createObra($v_titulo, $v_resena, $v_autor, $v_fechadesde, $v_fechahasta, $v_puntaje, $v_detallesExtra, $v_numeroSitios, $v_precio, $v_duracion, $v_director, $v_afiche){
 		$sql = "INSERT INTO 'Obras' ('idObras', 'titulo', 'resena', 'autor', 'fecha_desde', 'fecha_hasta', 'puntaje', 'detalles_extra', 'numeroSitios', " . "'precio', 'duracion', 'director', afiche') VALUES ($this->_id, $this->_titulo, $this->_resena, $this->_autor, $this->_fechaDesde, " . 		"$this->_fechaHasta, $this->_puntaje, $this->_detallesExtra, $this->_numeroSitios, $this->_precio, $this->_duracion, $this->_director, " .	"$this->_afiche)";
 		mysql_query($sql) OR die (mysql_error());
 }

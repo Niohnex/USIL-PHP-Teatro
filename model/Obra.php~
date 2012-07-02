@@ -37,110 +37,57 @@ class Obra{
  * 
  */
         
-public function get_id() {
-    return $this->_id;
-}
+public function get_id() {  return $this->_id; }
 
-public function get_titulo() {
-    return $this->_titulo;
-}
+public function get_titulo() { return $this->_titulo; }
 
-public function get_resena() {
-    return $this->_resena;
-}
+public function get_resena() { return $this->_resena; }
 
-public function get_autor() {
-    return $this->_autor;
-}
+public function get_autor() { return $this->_autor;  }
 
-public function get_fechaDesde() {
-    return $this->_fechaDesde;
-}
+public function get_fechaDesde() { return $this->_fechaDesde; }
 
-public function get_fechaHasta() {
-    return $this->_fechaHasta;
-}
+public function get_fechaHasta() {  return $this->_fechaHasta; }
 
-public function get_puntaje() {
-    return $this->_puntaje;
-}
+public function get_puntaje() { return $this->_puntaje; }
 
-public function get_detallesExtra() {
-    return $this->_detallesExtra;
-}
+public function get_detallesExtra() {  return $this->_detallesExtra; }
 
-public function get_numeroSitios() {
-    return $this->_numeroSitios;
-}
+public function get_numeroSitios() { return $this->_numeroSitios; }
 
-public function get_precio() {
-    return $this->_precio;
-}
+public function get_precio() { return $this->_precio; }
 
-public function get_duracion() {
-    return $this->_duracion;
-}
+public function get_duracion() { return $this->_duracion; }
 
-public function get_director() {
-    return $this->_director;
-}
+public function get_director() { return $this->_director; }
 
-public function get_afiche() {
-    return $this->_afiche;
-}
+public function get_afiche() { return $this->_afiche; }
 
+public function set_id($_id) {  $this->_id = $_id; }
 
-public function set_id($_id) {
-    $this->_id = $_id;
-}
+public function set_titulo($_titulo) { $this->_titulo = $_titulo; }
 
-public function set_titulo($_titulo) {
-    $this->_titulo = $_titulo;
-}
+public function set_resena($_resena) { $this->_resena = $_resena; }
 
-public function set_resena($_resena) {
-    $this->_resena = $_resena;
-}
+public function set_autor($_autor) { $this->_autor = $_autor; }
 
-public function set_autor($_autor) {
-    $this->_autor = $_autor;
-}
+public function set_fechaDesde($_fechaDesde) { $this->_fechaDesde = $_fechaDesde; }
 
-public function set_fechaDesde($_fechaDesde) {
-    $this->_fechaDesde = $_fechaDesde;
-}
+public function set_fechaHasta($_fechaHasta) { $this->_fechaHasta = $_fechaHasta; }
 
-public function set_fechaHasta($_fechaHasta) {
-    $this->_fechaHasta = $_fechaHasta;
-}
+public function set_puntaje($_puntaje) { $this->_puntaje = $_puntaje; }
 
-public function set_puntaje($_puntaje) {
-    $this->_puntaje = $_puntaje;
-}
+public function set_detallesExtra($_detallesExtra) {  $this->_detallesExtra = $_detallesExtra;  }
 
-public function set_detallesExtra($_detallesExtra) {
-    $this->_detallesExtra = $_detallesExtra;
-}
+public function set_numeroSitios($_numeroSitios) {  $this->_numeroSitios = $_numeroSitios; }
 
-public function set_numeroSitios($_numeroSitios) {
-    $this->_numeroSitios = $_numeroSitios;
-}
+public function set_precio($_precio) {  $this->_precio = $_precio; }
 
-public function set_precio($_precio) {
-    $this->_precio = $_precio;
-}
+public function set_duracion($_duracion) {  $this->_duracion = $_duracion; }
 
-public function set_duracion($_duracion) {
-    $this->_duracion = $_duracion;
-}
+public function set_director($_director) { $this->_director = $_director;  }
 
-public function set_director($_director) {
-    $this->_director = $_director;
-}
-
-public function set_afiche($_afiche) {
-    $this->_afiche = $_afiche;
-}
+public function set_afiche($_afiche) { $this->_afiche = $_afiche;  }
 
 function __construct($_id="", $_titulo="", $_resena="", $_autor="", $_fechaDesde="", $_fechaHasta="", $_puntaje="", $_detallesExtra="", $_numeroSitios="", $_precio="", $_duracion="", $_director="", $_afiche="") {
     $this->_id = $_id;
@@ -159,11 +106,12 @@ function __construct($_id="", $_titulo="", $_resena="", $_autor="", $_fechaDesde
 }
 
 
-public function _createObra($v_titulo, $v_resena, $v_autor, $v_fechadesde, $v_fechahasta, $v_puntaje, $v_detallesExtra, $v_numeroSitios, $v_precio, $v_duracion, $v_director, $v_afiche){
-		$sql = "INSERT INTO 'Obras' ('idObras', 'titulo', 'resena', 'autor', 'fecha_desde', 'fecha_hasta', 'puntaje', 'detalles_extra', 'numeroSitios', " . "'precio', 'duracion', 'director', afiche') VALUES ($this->_id, $this->_titulo, $this->_resena, $this->_autor, $this->_fechaDesde, " . 		"$this->_fechaHasta, $this->_puntaje, $this->_detallesExtra, $this->_numeroSitios, $this->_precio, $this->_duracion, $this->_director, " .	"$this->_afiche)";
+public function _createObra($v_titulo, $v_resena, $v_autor, $v_fechadesde, $v_fechahasta, $v_puntaje, $v_detallesExtra, $v_numeroSitios, $v_precio, $v_duracion, $v_director, $v_afiche) {
+
+$sql = "INSERT INTO 'Obras' ('titulo', 'resena', 'autor', 'fecha_desde', 'fecha_hasta', 'puntaje', 'detalles_extra', 'numeroSitios', " . "'precio', 'duracion', 'director', afiche') VALUES ( '" . $v_titulo . "', '" . $v_resena . "', '" . $v_autor . "', '" . $v_fechadesde . "', '" .  $v_fechahasta  . "', '" .  $v_puntaje  . "', '" .  $v_detallesExtra  . "', '" .  $v_numeroSitios  . "', '" .  $v_precio  . "', '" .  $v_duracion  . "', '" .  $v_director  . "', '" .  $v_afiche . ")";
+		
 		mysql_query($sql) OR die (mysql_error());
 }
- 
 
 public function getClaseDeObra() {
 	$clase ="";   
@@ -180,8 +128,8 @@ public function getClaseDeObra() {
            
 }
 
-	public function _updateObra(){
-		$sql = "UPDATE 'Obras' SET titulo = '$this->_titulo', resena = '$this->_resena', autor = '$this->_autor', fecha_desde = '$this->_fechaDesde', " . "fecha_hasta = '$this->_fechaHasta', puntaje = '$this->_puntaje', detalles_extra = '$this->_detallesExtra', numeroSitios = '$this->_numeroSitios', " . "precio = '$this->_precio', duracion = '$this->_duracion', director = '$this->_director', afiche = '$this->_afiche' " . "WHERE idObras = '$this->_id'";
+public function _updateObra($v_id, $v_titulo, $v_resena, $v_autor, $v_fechadesde, $v_fechahasta, $v_puntaje, $v_detallesExtra, $v_numeroSitios, $v_precio, $v_duracion, $v_director, $v_afiche) {
+		$sql = "UPDATE 'Obras' SET titulo = '" . $v_titulo ."', resena = '" . $v_resena . "', autor = '" . $v_autor . "', fecha_desde = '" . $v_fechadesde . "', " . "fecha_hasta = '" . $v_fechahasta . "', puntaje = '" . $v_puntaje . "', detalles_extra = '" . $v_detallesExtra . "', numeroSitios = '" . $v_numeroSitios . "', " . "precio = '" . $v_precio . "', duracion = '" . $v_duracion . "', director = '" . $v_director . "', afiche = '" . $v_afiche . "' " . "WHERE idObras = '" "'";
 
 		mysql_query($sql) OR die (mysql_error());
 		 
